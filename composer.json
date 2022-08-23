@@ -32,5 +32,17 @@
             "composer/package-versions-deprecated": true
         },
         "sort-packages": true
+    },
+    "scripts": {
+        "phpcs": [
+            "vendor/bin/phpcs --standard=phpcs.xml bin bootstrap config src tests"
+        ],
+        "psalm": [
+            "vendor/bin/psalm -c psalm.xml"
+        ],
+        "qa" : [
+            "@phpcs",
+            "@psalm"
+        ]
     }
 }

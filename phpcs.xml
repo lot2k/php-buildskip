@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ruleset>
+    <arg value="ps"/>
+    <arg name="colors"/>
+
+    <rule ref="A6a-relaxed">
+        <exclude name="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses.IncorrectlyOrderedUses"/>
+        <exclude name="SlevomatCodingStandard.Namespaces.UseSpacing.IncorrectLinesCountBeforeFirstUse"/>
+        <exclude name="SlevomatCodingStandard.Namespaces.UseSpacing.IncorrectLinesCountBetweenSameTypeOfUse"/>
+        <exclude name="SlevomatCodingStandard.Namespaces.UnusedUses.UnusedUse"/>
+        <exclude name="SlevomatCodingStandard.Classes.DisallowConstructorPropertyPromotion.DisallowedConstructorPropertyPromotion"/>
+        <exclude name="Generic.Formatting.SpaceBeforeCast.NoSpace"/>
+        <exclude name="SlevomatCodingStandard.Classes.SuperfluousExceptionNaming.SuperfluousSuffix"/>
+    </rule>
+
+    <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses.UnusedUse">
+        <exclude-pattern>src/BuildSkip/From.php</exclude-pattern>
+    </rule>
+
+    <rule ref="SlevomatCodingStandard.Namespaces.UseSpacing.IncorrectLinesCountBeforeFirstUse">
+        <exclude-pattern>src/BuildSkip/From.php</exclude-pattern>
+    </rule>
+
+    <rule ref="SlevomatCodingStandard.Namespaces.UseSpacing.IncorrectLinesCountBetweenSameTypeOfUse">
+        <exclude-pattern>src/BuildSkip/From.php</exclude-pattern>
+    </rule>
+
+    <rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses.IncorrectlyOrderedUses">
+        <exclude-pattern>src/BuildSkip/From.php</exclude-pattern>
+    </rule>
+
+</ruleset>
