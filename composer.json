@@ -3,6 +3,7 @@
     "description": "Being an incremental build utility",
     "bin": "bin/buildskip",
     "license": "BSD-3-Clause",
+    "type": "library",
     "autoload": {
         "psr-4": {
             "Lot2k\\": "src/"
@@ -19,11 +20,11 @@
         "a6a/fromdir": "^0.2.0",
         "level-2/dice": "^4.0",
         "nunomaduro/collision": "^6.2",
-        "vimeo/psalm": "^4.26",
         "vlucas/phpdotenv": "^5.4"
     },
     "require-dev": {
-        "a6a/coding-standards": "^0.1.4"
+        "a6a/coding-standards": "^0.1.4",
+        "vimeo/psalm": "^4.26"
     },
     "config": {
         "allow-plugins": {
@@ -31,6 +32,5 @@
             "composer/package-versions-deprecated": true
         },
         "sort-packages": true
-    },
-    "type": "project"
+    }
 }
