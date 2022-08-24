@@ -4,8 +4,42 @@
 namespace Lot2k\Buildskip;
 
 use Dice\Dice;
+use Generator;
+use RuntimeException;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+/**
+ * @param string $file
+ *
+ * @return Generator
+ *
+ * @var callable(string): string $unitLoader
+ */
+$unitLoader = function (string $file): Generator {
+    $sep = DIRECTORY_SEPARATOR;
+    for ($idx = 2; $idx >= 0; $idx--) {
+        yield __DIR__ . str_repeat("{$sep}..", $idx) . "/{$file}";
+    }
+};
+
+/**
+ * @param callable(string): string $unitLoader
+ *
+ * @return string
+ *
+ * @var callable(callable(string): string): string $bootLoader
+ */
+$bootLoader = function (callable $unitLoader): string {
+    foreach ($unitLoader('vendor/autoload.php') as $loader) {
+        $autoloader = realpath($loader);
+        if (file_exists($autoloader)) {
+            return $autoloader;
+        }
+    };
+
+    throw new RuntimeException("error: unable to locate composer, autoloader not loaded");
+};
+
+require $GLOBALS['_composer_autoload_path'] ?? $bootLoader($unitLoader);
 
 require In::BOOTSTRAP->dir('handlers.php');
 require In::BOOTSTRAP->dir('env.php');
