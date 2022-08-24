@@ -1,7 +1,9 @@
 {
     "name": "lot2k/php-buildskip",
     "description": "Being an incremental build utility",
-    "bin": "bin/buildskip",
+    "bin": [
+        "bin/buildskip"
+    ],
     "license": "BSD-3-Clause",
     "type": "library",
     "autoload": {
