@@ -1,0 +1,26 @@
+<dl class="mt-1 mb-1 ml-2">
+    <dt class="bg-red pl-1 pr-1 mb-1">User Error - Invalid Tag</dt>
+    <dd class="text-brightwhite">
+        <p>Your build constraint is set to <strong class="text-brightmagenta"><?= $constraint ?></strong>.</p>
+        <p class="text-white mt-0 mb-0">
+            The constraint should parse according to the
+            "<a href="https://getcomposer.org/doc/articles/versions.md#writing-version-constraints">
+                Writing version constraints
+            </a>" section of the Composer docs, but instead:
+        </p>
+    </dd>
+    <dd class="text-brightred mt-1 mb-1">
+        <?= $message ?>
+    </dd>
+    <dt class="text-yellow mt-1 mb-1 pl-1 pr-1">info:</dt>
+    <dd>
+        Refer to the <a href="https://github.com/lot2k/php-buildskip">README.md</a>.
+    </dd>
+    <dt class="text-green mt-2 mb-1 pl-1 pr-1">fix with:</dt>
+    <dd>
+        Update the
+        <strong class="text-blue">BUILDSKIP_INCREMENTAL_BUILD_CONSTRAINT</strong>
+        in
+        <strong class="text-blue"><?= $whichEnv ?></strong>
+    </dd>
+</dl>

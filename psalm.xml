@@ -20,4 +20,15 @@
 
 	</projectFiles>
 
+	<issueHandlers>
+
+		<UnresolvableInclude>
+			<errorLevel type="suppress">
+				<file name="bootstrap/handlers.php"/>
+				<file name="bootstrap/ioc.php"/>
+			</errorLevel>
+		</UnresolvableInclude>
+
+	</issueHandlers>
+
 </psalm>

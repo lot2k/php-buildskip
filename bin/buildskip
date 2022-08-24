@@ -1,0 +1,37 @@
+#!/usr/bin/env php
+<?php
+
+namespace Lot2k\Buildskip;
+
+use Dice\Dice;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+require In::BOOTSTRAP->dir('handlers.php');
+require In::BOOTSTRAP->dir('env.php');
+
+/** @var Dice $ioc */
+$ioc = require In::BOOTSTRAP->dir('ioc.php');
+
+try {
+    /** @var Buildskip $buildskip */
+    $buildskip = $ioc->create('$buildskip');
+
+    echo $buildskip->build(), PHP_EOL;
+
+    $buildskip->modifyDotEnv();
+
+    exit($buildskip->status());
+} catch (BuildskipException $e) {
+    switch ($e->getCode()) {
+        case 0:
+            throw $e;
+
+        case 1:
+            exit(Buildskip::NOT_GOOD);
+
+        default:
+            show($e->getCode(), ['message' => $e->getMessage()]);
+            exit(Buildskip::NOT_GOOD);
+    }
+}

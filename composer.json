@@ -7,7 +7,10 @@
     "autoload": {
         "psr-4": {
             "Lot2k\\": "src/"
-        }
+        },
+        "files": [
+            "src/Buildskip/Functions.php"
+        ]
     },
     "authors": [
         {
@@ -20,6 +23,7 @@
         "a6a/fromdir": "^0.2.0",
         "level-2/dice": "^4.0",
         "nunomaduro/collision": "^6.2",
+        "nunomaduro/termwind": "^1.14",
         "vlucas/phpdotenv": "^5.4"
     },
     "require-dev": {

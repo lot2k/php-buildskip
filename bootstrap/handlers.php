@@ -1,7 +1,9 @@
 <?php
 
+namespace Lot2k\Buildskip;
+
 use Dice\Dice;
 
 (new Dice())
-    ->addRules(require __DIR__ . '/../config/handlers/collision.php')
+    ->addRules(require In::CONFIG->dir('handlers/collision.php'))
     ->create('$nmCollision');
