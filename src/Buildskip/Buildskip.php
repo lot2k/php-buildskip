@@ -153,7 +153,7 @@ class Buildskip
 ##
 
 # gated auto-increment
-#  - https://getcomposer.org/doc/articles/versions.md#writing-version-constraints 
+#  - https://getcomposer.org/doc/articles/versions.md#writing-version-constraints
 BUILDSKIP_INCREMENTAL_BUILD_CONSTRAINT=~0.1.0
 
 # incremented manually
