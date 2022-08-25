@@ -10,7 +10,7 @@ use RuntimeException;
 /**
  * @param string $file
  *
- * @return Generator
+ * @return Generator<string>
  *
  * @var callable(string): string $unitLoader
  */
@@ -29,6 +29,7 @@ $unitLoader = function (string $file): Generator {
  * @var callable(callable(string): string): string $bootLoader
  */
 $bootLoader = function (callable $unitLoader): string {
+    /** @var string $loader */
     foreach ($unitLoader('vendor/autoload.php') as $loader) {
         $autoload = realpath($loader);
         if ($autoload && is_readable($autoload)) {
@@ -65,7 +66,7 @@ try {
             exit(Buildskip::NOT_GOOD);
 
         default:
-            show($e->getCode(), ['message' => $e->getMessage()]);
+            show((string)$e->getCode(), ['message' => $e->getMessage()]);
             exit(Buildskip::NOT_GOOD);
     }
 }

@@ -115,7 +115,7 @@ class Buildskip
                 'invalid-build-constraint',
                 [
                     'whichEnv' => $this->root(),
-                    'constraint' => $_ENV['BUILDSKIP_INCREMENTAL_BUILD_CONSTRAINT'],
+                    'constraint' => (string)$_ENV['BUILDSKIP_INCREMENTAL_BUILD_CONSTRAINT'],
                     'message' => $e->getMessage(),
                 ]
             );
@@ -128,7 +128,7 @@ class Buildskip
                 [
                     'whichEnv' => $this->root(),
                     'currentTag' => $currentTag,
-                    'constraint' => $_ENV['BUILDSKIP_INCREMENTAL_BUILD_CONSTRAINT'],
+                    'constraint' => (string)$_ENV['BUILDSKIP_INCREMENTAL_BUILD_CONSTRAINT'],
                 ]
             );
             throw new BuildskipException(code: 1);
