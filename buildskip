@@ -29,7 +29,7 @@ $unitLoader = function (string $file): Generator {
  * @var callable(callable(string): string): string $bootLoader
  */
 $bootLoader = function (callable $unitLoader): string {
-    foreach ($unitLoader('vendor/utoload.php') as $loader) {
+    foreach ($unitLoader('vendor/autoload.php') as $loader) {
         $autoload = realpath($loader);
         if ($autoload && is_readable($autoload)) {
             return $autoload;
