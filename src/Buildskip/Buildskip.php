@@ -46,9 +46,9 @@ class Buildskip
 
     public function modifyDotEnv(): void
     {
-        $env = file_get_contents($this->root(From::___->dir()));
+        $env = file_get_contents(From::___->dir() . '.env');
         $env = preg_replace('#^BUILDSKIP_TAG=.*#m', "BUILDSKIP_TAG={$this->useTag}", $env);
-        file_put_contents($this->root(From::___->dir()), $env);
+        file_put_contents(From::___->dir() . '.env', $env);
     }
 
     public function build(): string
