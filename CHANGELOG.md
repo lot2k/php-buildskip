@@ -12,3 +12,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - An altogether too brief README.md
 - Initialized the project with composer
 - An example .env
+- Core functionality
+- A branch alias to dev-main at 1.0-dev
