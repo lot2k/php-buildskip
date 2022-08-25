@@ -29,14 +29,14 @@ $unitLoader = function (string $file): Generator {
  * @var callable(callable(string): string): string $bootLoader
  */
 $bootLoader = function (callable $unitLoader): string {
-    foreach ($unitLoader('vendor/autoload.php') as $loader) {
-        $autoloader = realpath($loader);
-        if (file_exists($autoloader)) {
-            return $autoloader;
+    foreach ($unitLoader('vendor/utoload.php') as $loader) {
+        $autoload = realpath($loader);
+        if ($autoload && is_readable($autoload)) {
+            return $autoload;
         }
     };
 
-    throw new RuntimeException("error: unable to locate composer, autoloader not loaded");
+    throw new RuntimeException('unable to locate vendor/autoload.php');
 };
 
 require $GLOBALS['_composer_autoload_path'] ?? $bootLoader($unitLoader);
