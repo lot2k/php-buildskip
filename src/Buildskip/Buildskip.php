@@ -141,9 +141,13 @@ class Buildskip
             ? file_get_contents($this->root(From::___->dir()))
             : '';
 
+        if (strlen($env) > 0) {
+            $env .= PHP_EOL;
+        }
+
         file_put_contents(
             $this->root(From::___->dir()),
-            $env . PHP_EOL . <<<'ENV'
+            $env . <<<'ENV'
 ##
 ## buildskip    github.com/lot2k/php-buildskip
 ##
